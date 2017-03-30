@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>SlackChannel</title>
+    <script src="https://cdn.shopify.com/s/assets/external/app.js"></script>
+    <script src="channels-ui-kit_0.5.1.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" href="channels-ui-kit_0.5.1.css" type="text/css" />
+
+    <script type="text/javascript">
+    ShopifyApp.init({
+      apiKey: '<%= $key %>',
+      shopOrigin: 'https://<%= $shop %>'
+      });
+      ShopifyApp.Bar.loadingOff();
+    </script>
+    <script>ShopifyApp.Bar.loadingOff();</script>
+
+  </head>
+
+  <body>
+    <div class="ui-empty-state">
+    <section class="ui-empty-state__section">
+      <div class="ui-empty-state__subsection">
+        <h1 class="ui-empty-state__title">You haven't connected your Slack Team yet</h1>
+        <h2 class="ui-empty-state__subtitle">Connect your Team to begin selling through Slack</h2>
+      </div>
+      <div class="ui-empty-state__subsection">
+        <div class="ui-empty-state__items">
+          <div class="ui-empty-state__item">
+            <div class="ui-empty-state__subitems">
+              <div class="ui-empty-state__subitem ui-empty-state__subitem--image">
+                <img src="slacklogo.png" alt="Empty state sample image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-empty-state__subsection">
+        <a id="connect-slack" class="btn btn-large btn-primary" >Connect your Slack Team</a>
+      </div>
+    </section>
+  </div>
+  <div class="ui-footer-help" target="_blank">
+    <div class="ui-footer-help__content">
+      <div class="ui-footer-help__icon">
+        <svg role="img" class="next-icon next-icon--size-24 next-icon--no-nudge" aria-labelledby="next-help-f4f13b47b896c4e3dda071982d260af5-title">
+          <title id="next-help-f4f13b47b896c4e3dda071982d260af5-title">Help</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-help-circle">
+          </use>
+        </svg>
+      </div>
+      <div>
+        <p>Don't have a Slack team? Create one <a href="https://slack.com/create">by clicking here</a>.</p>
+      </div>
+    </div>
+  </div>
+  </body>
+  <script>
+    $( "#connect-slack" ).click(function() {
+          window.top.location.href = '<%= @install_url %>';
+    });
+  </script>
+</html>
